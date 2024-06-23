@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Clientes Page";
+}
+
+@model List<Cliente>
+
+<div class="text-center">
+    <h1 class="display-4">Clientes</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Cpf
+                </th>
+                <th>
+                    FormPag
+                </th>
+                <th>
+                    Produto
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @{
+                foreach(var cliente in Model)
+                {
+                    <tr>
+                        <td>
+                            @cliente.Id
+                        </td>
+                        <td>
+                            @cliente.Nome
+                        </td>
+                        <td>
+                            @cliente.Cpf
+                        </td>
+                        <td>
+                            @cliente.FormPag
+                        </td>
+                        <td>
+                            @cliente.Produto
+                        </td>
+                        <td>
+                            <a asp-controller="Home" asp-action="Editar" asp-route-id="@cliente.Id" class="btn btn-secondary">Editar</a>
+                            <a asp-controller="Home" asp-action="Deletar" asp-route-id="@cliente.Id" class="btn btn-secondary">Deletar</a>
+                        </td>
+                    </tr>
+                }
+            }
+            
+        </tbody>
+    </table>
+</div>

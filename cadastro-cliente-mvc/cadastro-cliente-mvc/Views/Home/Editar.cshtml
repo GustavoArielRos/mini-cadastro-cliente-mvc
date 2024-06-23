@@ -1,0 +1,41 @@
+﻿@{
+
+    ViewData["Title"] = "Editar Page";
+
+}
+
+@model cadastro_cliente_mvc.Models.Cliente
+
+<div class="text-center">
+    <h1 class="display-4">Cliente</h1>
+
+    <form asp-controller="Home" asp-action="Criar_Editar_form" >
+
+        <input hidden class="form-control" type="number" asp-for="Id" />
+        <br />
+
+        <label>Nome</label>
+        <input class="form-control" type="string" asp-for="Nome" />
+        <br />
+
+        <label>Cpf</label>
+        <input class="form-control" type="string" asp-for="Cpf" />
+        <br />
+
+       
+
+        
+        <select asp-for="FormPag" class="form-control" asp-items="Html.GetEnumSelectList<FormPaga>()">
+            <option value="">Forma de pagamento</option>
+        </select>
+        
+        <label>Produto</label>
+        <input class="form-control" type="string" asp-for="Produto" />
+        <br />
+
+        <button class="btn btn-primary mt-4" type="submit">ok</button>
+
+    </form>
+
+
+</div>
